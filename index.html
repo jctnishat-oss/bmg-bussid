@@ -43,10 +43,9 @@
             border: 4px solid #1a1a1a;
             padding: 20px 40px;
             border-radius: 10px;
-            margin: 30px 0;
+            margin: 30px 0 10px 0;
             box-shadow: 0 0 20px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
             text-align: center;
-            position: relative;
         }
         .clock-label {
             font-family: 'Orbitron';
@@ -62,6 +61,15 @@
             color: var(--neon-blue);
             text-shadow: 0 0 15px var(--neon-blue);
             font-weight: bold;
+        }
+        .schedule-info {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            background: rgba(112, 0, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(112, 0, 255, 0.3);
         }
 
         .section-title {
@@ -95,7 +103,7 @@
         .rules-toggle-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
 
         #rules-content {
-            display: none; /* শুরুতে লুকানো থাকবে */
+            display: none;
             width: 90%; max-width: 900px;
             animation: fadeIn 0.5s ease-in;
         }
@@ -116,13 +124,9 @@
             padding: 20px; border-radius: 15px;
         }
         .rules-box h3 { color: var(--neon-red); font-family: 'Orbitron'; font-size: 1rem; margin-top: 0; }
-        .rules-list { padding-left: 20px; color: #ced4da; font-size: 0.95rem; line-height: 1.6; list-style-type: square; }
+        .rules-list { padding-left: 20px; color: #ced4da; font-size: 0.95rem; line-height: 1.6; }
 
-        /* সোশ্যাল ও কার্ড গ্রিড */
-        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; width: 90%; max-width: 900px; margin: 10px 0; }
-        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; }
-        .btn-discord { background: #5865F2; } .btn-facebook { background: #1877F2; } .btn-whatsapp { background: #25D366; } .btn-telegram { background: #0088cc; }
-
+        /* কার্ড গ্রিড */
         .container { width: 90%; max-width: 1100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding-bottom: 50px; }
         .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .card img { width: 100%; height: 180px; object-fit: cover; }
@@ -142,46 +146,34 @@
 </header>
 
 <div class="digital-clock">
-    <span class="clock-label">NEXT MULTIPLAYER ROOM</span>
+    <span class="clock-label">NEXT MULTIPLAYER ROOM IN</span>
     <div id="timer">00:00:00</div>
+</div>
+<div class="schedule-info">
+    <i class="fas fa-clock"></i> দুপুর ০২:৩০ PM | রাত ০৯:০০ PM
 </div>
 
 <h2 class="section-title">✅ কমিউনিটিতে যুক্ত হন</h2>
-<div class="social-grid">
-    <a href="https://discord.gg/fUKA2MpFmn" target="_blank" class="social-btn btn-discord"><i class="fab fa-discord"></i> Discord</a>
-    <a href="https://www.facebook.com/groups/4203315063290851/?ref=share&mibextid=NSMWBT" target="_blank" class="social-btn btn-facebook"><i class="fab fa-facebook-f"></i> Group</a>
-    <a href="https://chat.whatsapp.com/KimQEIVWEYNI7AEiqMT4hs" target="_blank" class="social-btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="https://t.me/khucra" target="_blank" class="social-btn btn-telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 90%;">
+    <a href="https://discord.gg/fUKA2MpFmn" target="_blank" style="background:#5865F2; padding:12px 20px; border-radius:8px; text-decoration:none; color:white; font-weight:bold;">Discord</a>
+    <a href="https://www.facebook.com/groups/4203315063290851/" target="_blank" style="background:#1877F2; padding:12px 20px; border-radius:8px; text-decoration:none; color:white; font-weight:bold;">FB Group</a>
+    <a href="https://chat.whatsapp.com/KimQEIVWEYNI7AEiqMT4hs" target="_blank" style="background:#25D366; padding:12px 20px; border-radius:8px; text-decoration:none; color:white; font-weight:bold;">WhatsApp</a>
 </div>
 
 <button class="rules-toggle-btn" onclick="toggleRules()">
-    <i class="fas fa-scroll"></i> SERVER RULES (রুলস দেখুন)
+    <i class="fas fa-gavel"></i> ROOM RULES (গেমের নিয়মাবলী)
 </button>
 
 <div id="rules-content">
-    <div class="rules-grid">
-        <div class="rules-box">
-            <h3>🇧🇩 বাংলা ভার্সন</h3>
-            <ul class="rules-list">
-                <li>গালাগালি বা অপমানজনক ভাষা ব্যবহার নিষিদ্ধ।</li>
-                <li>একই মেসেজ বারবার পাঠানো বা অযথা পিং করা যাবে না।</li>
-                <li>অনুমতি ছাড়া কোনো বিজ্ঞাপন বা লিংক শেয়ার নিষিদ্ধ।</li>
-                <li>ধর্ম বা রাজনীতি নিয়ে কোনো বিতর্ক করা যাবে না।</li>
-                <li>চিৎকার বা অন্যকে বিরক্ত করা থেকে বিরত থাকুন।</li>
-                <li>অ্যাডমিন বা মডারেটরদের সিদ্ধান্তই চূড়ান্ত।</li>
-            </ul>
-        </div>
-        <div class="rules-box">
-            <h3>🇺🇸 English Version</h3>
-            <ul class="rules-list">
-                <li>No insults, harassment, or offensive language.</li>
-                <li>Avoid repeated messages or unnecessary pings.</li>
-                <li>Sharing external links requires prior permission.</li>
-                <li>Avoid debates on religion or politics.</li>
-                <li>No screaming or disturbing others in VC.</li>
-                <li>Admin and Moderator decisions are final.</li>
-            </ul>
-        </div>
+    <div class="rules-box" style="margin-bottom:20px;">
+        <h3>🏁 মাল্টিপ্লেয়ার রুম রুলস</h3>
+        <ul class="rules-list">
+            <li><strong>লাইন মেনটেইন:</strong> সবাই এক লাইনে গাড়ি চালাবেন, অযথা ওভারটেক করবেন না।</li>
+            <li><strong>স্পিড লিমিট:</strong> গতি অবশ্যই ৮০-১০০ কিমি/ঘণ্টার মধ্যে রাখুন।</li>
+            <li><strong>নিরাপদ দূরত্ব:</strong> সামনের গাড়ি থেকে পর্যাপ্ত দূরত্ব বজায় রাখুন।</li>
+            <li><strong>ইন্ডিকেটর:</strong> মোড় ঘোরার সময় ইন্ডিকেটর ব্যবহার বাধ্যতামূলক।</li>
+            <li><strong>ভদ্রতা:</strong> গেম চ্যাটে কোনো খারাপ ভাষা বা বিশৃঙ্খলা করা যাবে না।</li>
+        </ul>
     </div>
 </div>
 
@@ -212,17 +204,11 @@
 </footer>
 
 <script>
-    // রুলস শো/হাইড করার ফাংশন
     function toggleRules() {
         var x = document.getElementById("rules-content");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-        }
+        x.style.display = (x.style.display === "block") ? "none" : "block";
     }
 
-    // ডিজিটাল টাইমার ফাংশন
     function updateTimer() {
         const now = new Date();
         const times = ["14:30:00", "21:00:00"]; 
