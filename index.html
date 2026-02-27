@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMG BUSSID HUB | Official Portal</title>
+    <title>BMG BUSSID HUB | Pro Gaming Community</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@500;700&family=Black+Ops+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --neon-blue: #00f2ff;
-            --neon-purple: #7000ff;
-            --neon-red: #ff0055;
-            --dark-bg: #020408;
+            --neon-orange: #ff9f00;
+            --neon-gold: #ffcf00;
+            --neon-red: #ff0033;
+            --dark-bg: #030509;
             --card-bg: rgba(13, 18, 29, 0.98);
         }
 
@@ -22,67 +22,168 @@
             margin: 0; padding: 0;
             display: flex; flex-direction: column; align-items: center;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 50%, #0d121d 0%, #020408 100%);
+            /* গেমের মতো ব্যাকগ্রাউন্ড গ্রাডিয়েন্ট */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 159, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 51, 0.05) 0%, transparent 40%);
         }
 
-        header { width: 100%; padding: 50px 0 20px; text-align: center; }
+        header {
+            width: 100%; padding: 70px 0 40px;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+        }
 
+        /* BMG লোগো - অরেঞ্জ এবং গোল্ডেন আরজিবি */
         .bmg-logo {
             font-family: 'Black Ops One', cursive;
-            font-size: 5.5rem; margin: 0; line-height: 1;
-            color: #fff; text-transform: uppercase; letter-spacing: 8px;
-            animation: neon-glow 3s ease-in-out infinite alternate;
+            font-size: 6.5rem;
+            margin: 0;
+            line-height: 1;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            /* নিয়ন লাইটিং ইফেক্ট - অরেঞ্জ টু গোল্ড */
+            animation: neon-glow-orange 3s ease-in-out infinite alternate;
         }
 
-        @keyframes neon-glow {
-            from { text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue); }
-            to { text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple); }
+        @keyframes neon-glow-orange {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--neon-orange), 0 0 40px var(--neon-orange), 0 0 50px var(--neon-orange);
+            }
+            to {
+                text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-gold), 0 0 20px var(--neon-gold), 0 0 30px var(--neon-gold), 0 0 40px var(--neon-gold);
+            }
         }
 
-        .sub-logo { font-family: 'Orbitron'; font-size: 1rem; color: #888; letter-spacing: 3px; margin-top: 10px; font-weight: bold; }
+        .sub-logo {
+            font-family: 'Orbitron';
+            font-size: 1.2rem;
+            color: #bdc3c7; /* হালকা ধূসর */
+            letter-spacing: 4px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-        .digital-clock { background: rgba(0, 0, 0, 0.85); border: 1px solid var(--neon-blue); padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 0 20px rgba(0, 242, 255, 0.1); margin: 20px 0; width: 90%; max-width: 400px; }
-        #timer { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-blue); }
+        /* ডিজিটাল ক্লক - BUSSID স্টাইল */
+        .clock-container {
+            margin: 20px auto;
+            width: 90%; max-width: 450px;
+        }
 
-        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; width: 95%; max-width: 650px; margin: 20px 0; }
-        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; font-size: 1rem; transition: 0.3s; }
-        .btn-discord { background: #5865F2; } .btn-facebook { background: #1877F2; } .btn-whatsapp { background: #25D366; } .btn-telegram { background: #0088cc; }
-        .social-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+        .digital-clock {
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid rgba(255, 159, 0, 0.3);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 159, 0, 0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
 
+        #timer {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--neon-gold);
+            text-shadow: 0 0 20px var(--neon-gold);
+            margin: 10px 0;
+        }
+
+        .schedule-info {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* সোশ্যাল বাটন গ্রিড - বড় এবং কালারফুল */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px; width: 90%; max-width: 700px; margin: 30px 0;
+        }
+        .social-btn {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; padding: 18px; border-radius: 15px;
+            text-decoration: none; color: white; font-weight: bold;
+            font-size: 1.1rem; transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .btn-discord { background: #5865F2; }
+        .btn-facebook { background: #1877F2; }
+        .btn-whatsapp { background: #25D366; }
+        .btn-telegram { background: #0088cc; }
+        .social-btn:hover { transform: translateY(-5px) scale(1.05); filter: brightness(1.2); }
+
+        /* কার্ড সেকশন - ৪কে ছবির শার্পনেস ফিক্স */
         .container {
             width: 95%; max-width: 1200px;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px; padding: 40px 0 80px;
+            gap: 30px; padding: 40px 0 60px;
         }
-
-        .card { 
-            background: var(--card-bg); border-radius: 15px; overflow: hidden; 
-            border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px; overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
         }
-        .card:hover { border-color: var(--neon-blue); transform: translateY(-10px); }
-
-        .image-box { width: 100%; height: 210px; overflow: hidden; background: #000; }
+        .card:hover { border-color: var(--neon-orange); box-shadow: 0 0 30px rgba(255, 159, 0, 0.1); }
         .card img { 
-            width: 100%; height: 100%; object-fit: cover;
-            filter: contrast(1.1) brightness(1.1);
+            width: 100%; height: 220px; object-fit: cover; 
+            /* 4K ছবির কোয়ালিটি ধরে রাখার জন্য */
             image-rendering: -webkit-optimize-contrast;
-            transition: 0.5s;
+            image-rendering: crisp-edges;
+            display: block;
         }
-
         .card-content { padding: 25px; text-align: center; }
-        .card-content h3 { font-family: 'Orbitron'; font-size: 1.1rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-
-        .download-btn { 
-            display: inline-block; width: 100%; 
-            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue)); 
-            color: white; padding: 15px 0; text-decoration: none; 
-            border-radius: 10px; font-weight: bold; font-family: 'Orbitron';
+        .card-content h3 { font-family: 'Orbitron'; font-size: 1.2rem; color: #fff; margin-bottom: 20px; }
+        .download-btn {
+            display: inline-block; width: 100%;
+            background: linear-gradient(45deg, var(--neon-gold), var(--neon-orange));
+            color: black; padding: 15px 0; text-decoration: none;
+            border-radius: 12px; font-weight: bold; font-family: 'Orbitron';
+            text-transform: uppercase;
         }
 
-        .messenger-float { position: fixed; bottom: 30px; right: 30px; background: #0084ff; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; }
+        /* হারানো রুলস বক্স - ফিরিয়ে আনা হলো এবং বড় করা হলো */
+        .rules-section {
+            width: 90%; max-width: 800px;
+            background: rgba(255, 0, 51, 0.03);
+            border: 2px solid var(--neon-red);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0 60px;
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.1);
+        }
 
-        footer { padding: 50px; color: #444; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; }
+        .rules-title {
+            font-family: 'Orbitron';
+            color: var(--neon-red);
+            font-size: 1.5rem;
+            margin-top: 0;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--neon-red);
+        }
+
+        .rules-list {
+            line-height: 2.2;
+            color: #bdc3c7;
+            list-style: square;
+            font-size: 1.1rem;
+            padding-left: 20px;
+        }
+
+        /* মেসেঞ্জার */
+        .messenger-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #0084ff; color: white; width: 65px; height: 65px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 32px; box-shadow: 0 5px 25px rgba(0, 132, 255, 0.5);
+            z-index: 1000; text-decoration: none;
+        }
+
+        footer { padding: 60px; color: #444; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; }
     </style>
 </head>
 <body>
@@ -92,53 +193,62 @@
     <div class="sub-logo">BMG BUSSID Multiplayer</div>
 </header>
 
-<div class="digital-clock">
-    <div id="timer">00:00:00</div>
-    <div style="color: #666; font-size: 0.8rem; font-family: 'Orbitron';">NEXT MATCH COUNTDOWN</div>
+<div class="clock-container">
+    <div class="digital-clock">
+        <span style="font-family: 'Orbitron'; font-size: 0.7rem; color: #555; letter-spacing: 2px;">COUNTDOWN TO NEXT ROOM</span>
+        <div id="timer">00:00:00</div>
+        <div class="schedule-info">
+            <i class="fas fa-calendar-alt"></i> দুপুর ০২:৩০ | রাত ০৯:০০
+        </div>
+    </div>
 </div>
 
 <div class="social-grid">
     <a href="https://discord.gg/fUKA2MpFmn" class="social-btn btn-discord" target="_blank"><i class="fab fa-discord"></i> Discord</a>
-    <a href="https://www.facebook.com/groups/4203315063290851/" class="social-btn btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="https://www.facebook.com/groups/4203315063290851/" class="social-btn btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Group</a>
     <a href="https://chat.whatsapp.com/KimQEIVWEYNI7AEiqMT4hs" class="social-btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     <a href="https://t.me/khucra" class="social-btn btn-telegram" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
 </div>
 
+<h2 style="font-family: 'Orbitron'; color: var(--neon-orange); letter-spacing: 2px; margin-bottom: 30px;">LATEST MODS & SKINS</h2>
+
 <div class="container">
     <div class="card">
-        <div class="image-box">
-            <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg" alt="Saudia Bus">
-        </div>
+        <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg" alt="Saudia Bus">
         <div class="card-content">
             <h3>SAUDIA BMG SPECIAL (4K)</h3>
-            <a href="https://drive.google.com/file/d/1TckotrGd1sy2boe1FVwqsiSRpR89iHgv/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD NOW</a>
+            <a href="https://drive.google.com/file/d/1TckotrGd1sy2boe1FVwqsiSRpR89iHgv/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD MOD</a>
         </div>
     </div>
 
     <div class="card">
-        <div class="image-box">
-            <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg" alt="Hanif">
-        </div>
+        <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg" alt="Hanif">
         <div class="card-content">
             <h3>HANIF PREMIUM V2</h3>
-            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn" target="_blank">DOWNLOAD NOW</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="image-box">
-            <img src="https://i.postimg.cc/bw39KnKw/20260228-023826.jpg" alt="Hanif Bus">
-        </div>
-        <div class="card-content">
-            <h3>HANIF BUS SKIN</h3>
-            <a href="https://drive.google.com/file/d/1-HalrVa1FkDsAT3_35_TEe_H59f1Mtd3/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD NOW</a>
+            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn" target="_blank">DOWNLOAD MOD</a>
         </div>
     </div>
 </div>
 
-<a href="https://m.me/61583460129028" target="_blank" class="messenger-float"><i class="fab fa-facebook-messenger"></i></a>
+<div class="rules-section">
+    <h3 class="rules-title">🛑 ROOM RULES 🛑</h3>
+    <ul class="rules-list">
+        <li>১. গাড়ি সবসময় নির্দিষ্ট লাইনে রাখুন।</li>
+        <li>২. গতিসীমা ৮০-১০০ কিমি/ঘণ্টার মধ্যে সীমাবদ্ধ রাখুন।</li>
+        <li>৩. অকারণে ওভারটেক বা হর্ন বাজিয়ে বিরক্ত করবেন না।</li>
+        <li>৪. ইন্ডিকেটর এবং হেডলাইট সঠিকভাবে ব্যবহার করুন।</li>
+        <li>৫. অ্যাডমিনের নির্দেশ মেনে চলুন।</li>
+    </ul>
+</div>
 
-<footer>&copy; 2026 BMG-BUSSID HUB | DESIGNED BY JCT NISHAT</footer>
+<a href="https://m.me/61583460129028" target="_blank" class="messenger-float">
+    <i class="fab fa-facebook-messenger"></i>
+</a>
+
+<footer>
+    &copy; 2026 BMG-BUSSID HUB | OFFICIAL COMMUNITY<br>
+    <small style="letter-spacing: 2px; color: #333;">POWERED BY JCT NISHAT</small>
+</footer>
 
 <script>
     function updateTimer() {
@@ -146,15 +256,25 @@
         const times = ["14:30:00", "21:00:00"]; 
         let nextSession = null;
         for (let t of times) {
-            let s = new Date(); let [h, m, sec] = t.split(':'); s.setHours(h, m, sec);
+            let s = new Date();
+            let [h, m, sec] = t.split(':');
+            s.setHours(h, m, sec);
             if (s > now) { nextSession = s; break; }
         }
-        if (!nextSession) { nextSession = new Date(); let [h, m, sec] = times[0].split(':'); nextSession.setDate(now.getDate() + 1); nextSession.setHours(h, m, sec); }
+        if (!nextSession) {
+            nextSession = new Date();
+            let [h, m, sec] = times[0].split(':');
+            nextSession.setDate(now.getDate() + 1);
+            nextSession.setHours(h, m, sec);
+        }
         const diff = nextSession - now;
-        const h = Math.floor(diff / 3600000); const m = Math.floor((diff % 3600000) / 60000); const s = Math.floor((diff % 60000) / 1000);
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
         document.getElementById("timer").innerHTML = (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
     }
-    setInterval(updateTimer, 1000); updateTimer();
+    setInterval(updateTimer, 1000);
+    updateTimer();
 </script>
 
 </body>
