@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMG-BUSSID HUB | Premium Skins</title>
+    <title>BMG-BUSSID | Multiplayer & Skins</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,11 +22,10 @@
         }
 
         header {
-            width: 100%; padding: 50px 0;
+            width: 100%; padding: 40px 0;
             text-align: center;
             background: linear-gradient(to bottom, rgba(0, 242, 255, 0.1), transparent);
-            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
-            margin-bottom: 30px;
+            border-bottom: 2px solid var(--neon-blue);
         }
 
         header h1 {
@@ -34,7 +33,37 @@
             font-size: 2.2rem; margin: 0;
             background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+
+        /* কাউন্টডাউন বক্স */
+        .countdown-container {
+            background: rgba(112, 0, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        #timer {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--neon-blue);
+            margin: 15px 0;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .status-badge {
+            background: #00ff00;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
         .container {
@@ -47,62 +76,45 @@
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 15px; overflow: hidden;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--neon-blue);
-            box-shadow: 0 10px 25px rgba(0, 242, 255, 0.15);
-        }
+        .card:hover { transform: translateY(-8px); border-color: var(--neon-blue); }
 
-        /* ছবি ঝাপসা রোধ করার জন্য ফিক্স */
-        .card img {
-            width: 100%; height: 210px;
-            object-fit: cover; /* ছবি কার্ডে ফিট করবে */
-            image-rendering: -webkit-optimize-contrast; /* শার্পনেস বাড়াবে */
-            display: block;
-        }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
 
         .card-content { padding: 20px; text-align: center; }
-
-        .card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem; color: var(--neon-blue); margin: 0 0 10px;
-        }
-
-        .card p { color: #8899a6; font-size: 1rem; margin-bottom: 20px; }
 
         .download-btn {
             display: inline-block; width: 85%;
             background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
             color: white; padding: 12px;
             text-decoration: none; border-radius: 8px;
-            font-weight: bold; font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
-            transition: 0.3s;
+            font-weight: bold;
         }
 
-        .download-btn:hover {
-            box-shadow: 0 0 20px var(--neon-blue);
-            transform: scale(1.02);
-        }
+        footer { margin: 40px 0; color: #444; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>BMG BUSSID HUB</h1>
-    <p style="color: #607d8b; letter-spacing: 2px;">PREMIUM SKINS & MODS</p>
+    <p>DOWNLOAD SKINS & JOIN MULTIPLAYER</p>
 </header>
 
+<div class="countdown-container">
+    <span class="status-badge">Next Room</span>
+    <h2 style="margin-top: 15px;">মাল্টিপ্লেয়ার শুরু হতে বাকি:</h2>
+    <div id="timer">Loading...</div>
+    <p id="next-time" style="color: #8899a6;">পরবর্তী রুম: দুপুর ০২:৩০ বা রাত ০৯:০০</p>
+</div>
+
 <div class="container">
-    
     <div class="card">
         <img src="https://i.postimg.cc/TphkDsjr/Photo-260226103343.jpg" alt="Hanif Skin">
         <div class="card-content">
             <h3>BMG HANIF SPECIAL</h3>
-            <p>High Resolution Texture for Bussid</p>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
         </div>
     </div>
@@ -110,13 +122,52 @@
     <div class="card">
         <img src="https://i.postimg.cc/ykrbpKYC/Chat-GPT-Image-Feb-27-2026-11-00-02-PM.png" alt="Multiplayer Skin">
         <div class="card-content">
-            <h3>BUSSID MULTIPLAYER</h3>
-            <p>Premium Pack for All Bus Models</p>
+            <h3>GREEN GAMING EDITION</h3>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
         </div>
     </div>
-
 </div>
+
+<footer>
+    &copy; 2026 BMG-BUSSID | JCT NISHAT
+</footer>
+
+<script>
+    function updateTimer() {
+        const now = new Date();
+        const times = ["14:30:00", "21:00:00"]; // দুপুর ২:৩০ এবং রাত ৯:০০
+        let nextSession = null;
+
+        for (let time of times) {
+            let session = new Date();
+            let [hours, minutes, seconds] = time.split(':');
+            session.setHours(hours, minutes, seconds);
+
+            if (session > now) {
+                nextSession = session;
+                break;
+            }
+        }
+
+        if (!nextSession) {
+            nextSession = new Date();
+            let [hours, minutes, seconds] = times[0].split(':');
+            nextSession.setDate(now.getDate() + 1);
+            nextSession.setHours(hours, minutes, seconds);
+        }
+
+        const diff = nextSession - now;
+        const h = Math.floor(diff / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("timer").innerHTML = 
+            (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
 
 </body>
 </html>
