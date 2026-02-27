@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMG BUSSID HUB | Pro Gaming Community</title>
+    <title>BMG BUSSID HUB | Official</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@500;700&family=Black+Ops+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
+            --bmg-blue: #00d4ff; /* লোগোর নতুন কালার */
             --neon-orange: #ff9f00;
-            --neon-gold: #ffcf00;
-            --neon-red: #ff0033;
             --dark-bg: #030509;
             --card-bg: rgba(13, 18, 29, 0.98);
         }
@@ -21,186 +20,81 @@
             font-family: 'Rajdhani', sans-serif;
             margin: 0; padding: 0;
             display: flex; flex-direction: column; align-items: center;
-            overflow-x: hidden;
-            /* গেমের মতো ব্যাকগ্রাউন্ড গ্রাডিয়েন্ট */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 159, 0, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 51, 0.05) 0%, transparent 40%);
+            background-image: radial-gradient(circle at 50% 50%, #0d121d 0%, #030509 100%);
         }
 
-        header {
-            width: 100%; padding: 70px 0 40px;
-            text-align: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
-        }
+        header { width: 100%; padding: 60px 0 30px; text-align: center; }
 
-        /* BMG লোগো - অরেঞ্জ এবং গোল্ডেন আরজিবি */
+        /* BMG লোগো - সাদা কালার বাদ, গ্লো কমানো হয়েছে */
         .bmg-logo {
             font-family: 'Black Ops One', cursive;
-            font-size: 6.5rem;
+            font-size: 5.5rem;
             margin: 0;
-            line-height: 1;
-            color: #fff;
+            color: var(--bmg-blue);
             text-transform: uppercase;
-            letter-spacing: 10px;
-            /* নিয়ন লাইটিং ইফেক্ট - অরেঞ্জ টু গোল্ড */
-            animation: neon-glow-orange 3s ease-in-out infinite alternate;
+            letter-spacing: 8px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); /* গ্লো কমানো হয়েছে */
+            animation: soft-pulse 4s ease-in-out infinite;
         }
 
-        @keyframes neon-glow-orange {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--neon-orange), 0 0 40px var(--neon-orange), 0 0 50px var(--neon-orange);
-            }
-            to {
-                text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-gold), 0 0 20px var(--neon-gold), 0 0 30px var(--neon-gold), 0 0 40px var(--neon-gold);
-            }
+        @keyframes soft-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(0.98); }
         }
 
-        .sub-logo {
-            font-family: 'Orbitron';
-            font-size: 1.2rem;
-            color: #bdc3c7; /* হালকা ধূসর */
-            letter-spacing: 4px;
-            margin-top: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        /* ডিজিটাল ক্লক - BUSSID স্টাইল */
-        .clock-container {
-            margin: 20px auto;
-            width: 90%; max-width: 450px;
-        }
+        .sub-logo { font-family: 'Orbitron'; font-size: 1rem; color: #555; letter-spacing: 3px; margin-top: 5px; font-weight: bold; }
 
         .digital-clock {
-            background: rgba(0, 0, 0, 0.85);
-            border: 2px solid rgba(255, 159, 0, 0.3);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 159, 0, 0.1);
-            text-align: center;
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 159, 0, 0.2);
+            padding: 25px; border-radius: 15px;
+            text-align: center; margin: 20px 0; width: 85%; max-width: 380px;
         }
 
-        #timer {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            color: var(--neon-gold);
-            text-shadow: 0 0 20px var(--neon-gold);
-            margin: 10px 0;
-        }
+        #timer { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; color: var(--neon-orange); text-shadow: 0 0 10px rgba(255,159,0,0.4); }
 
-        .schedule-info {
-            color: #bdc3c7;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
+        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; width: 90%; max-width: 650px; margin: 20px 0; }
+        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; font-size: 0.9rem; }
+        .btn-discord { background: #5865F2; } .btn-facebook { background: #1877F2; } .btn-whatsapp { background: #25D366; } .btn-telegram { background: #0088cc; }
+        .social-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
-        /* সোশ্যাল বাটন গ্রিড - বড় এবং কালারফুল */
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px; width: 90%; max-width: 700px; margin: 30px 0;
-        }
-        .social-btn {
-            display: flex; align-items: center; justify-content: center;
-            gap: 10px; padding: 18px; border-radius: 15px;
-            text-decoration: none; color: white; font-weight: bold;
-            font-size: 1.1rem; transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .btn-discord { background: #5865F2; }
-        .btn-facebook { background: #1877F2; }
-        .btn-whatsapp { background: #25D366; }
-        .btn-telegram { background: #0088cc; }
-        .social-btn:hover { transform: translateY(-5px) scale(1.05); filter: brightness(1.2); }
-
-        /* কার্ড সেকশন - ৪কে ছবির শার্পনেস ফিক্স */
+        /* ৩টি স্লট গ্রিড সেকশন */
         .container {
             width: 95%; max-width: 1200px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; padding: 40px 0 60px;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px; overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s;
-        }
-        .card:hover { border-color: var(--neon-orange); box-shadow: 0 0 30px rgba(255, 159, 0, 0.1); }
-        .card img { 
-            width: 100%; height: 220px; object-fit: cover; 
-            /* 4K ছবির কোয়ালিটি ধরে রাখার জন্য */
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            display: block;
-        }
-        .card-content { padding: 25px; text-align: center; }
-        .card-content h3 { font-family: 'Orbitron'; font-size: 1.2rem; color: #fff; margin-bottom: 20px; }
-        .download-btn {
-            display: inline-block; width: 100%;
-            background: linear-gradient(45deg, var(--neon-gold), var(--neon-orange));
-            color: black; padding: 15px 0; text-decoration: none;
-            border-radius: 12px; font-weight: bold; font-family: 'Orbitron';
-            text-transform: uppercase;
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); /* ৩টি কলাম ফিক্স করা হলো */
+            gap: 20px; padding: 30px 0 60px;
         }
 
-        /* হারানো রুলস বক্স - ফিরিয়ে আনা হলো এবং বড় করা হলো */
-        .rules-section {
-            width: 90%; max-width: 800px;
-            background: rgba(255, 0, 51, 0.03);
-            border: 2px solid var(--neon-red);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 20px 0 60px;
-            box-shadow: 0 0 30px rgba(255, 0, 51, 0.1);
-        }
+        @media (max-width: 900px) { .container { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } }
 
-        .rules-title {
-            font-family: 'Orbitron';
-            color: var(--neon-red);
-            font-size: 1.5rem;
-            margin-top: 0;
-            text-align: center;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px var(--neon-red);
-        }
+        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s; }
+        .card img { width: 100%; height: 200px; object-fit: cover; image-rendering: -webkit-optimize-contrast; }
+        .card-content { padding: 20px; text-align: center; }
+        .card-content h3 { font-family: 'Orbitron'; font-size: 1rem; color: #fff; margin-bottom: 15px; }
+        .download-btn { display: inline-block; width: 100%; background: linear-gradient(45deg, #222, #444); color: white; padding: 12px 0; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Orbitron'; font-size: 0.8rem; border: 1px solid #555; }
+        .download-btn:hover { background: var(--bmg-blue); color: #000; border-color: var(--bmg-blue); }
 
-        .rules-list {
-            line-height: 2.2;
-            color: #bdc3c7;
-            list-style: square;
-            font-size: 1.1rem;
-            padding-left: 20px;
-        }
+        /* রুলস বক্স */
+        .rules-section { width: 90%; max-width: 800px; background: rgba(255, 0, 51, 0.05); border: 1px solid #ff0033; border-radius: 15px; padding: 25px; margin-bottom: 50px; }
+        .rules-title { font-family: 'Orbitron'; color: #ff0033; font-size: 1.2rem; text-align: center; margin-bottom: 15px; }
+        .rules-list { line-height: 2; color: #ccc; font-size: 0.95rem; }
 
-        /* মেসেঞ্জার */
-        .messenger-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background: #0084ff; color: white; width: 65px; height: 65px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 32px; box-shadow: 0 5px 25px rgba(0, 132, 255, 0.5);
-            z-index: 1000; text-decoration: none;
-        }
+        .messenger-float { position: fixed; bottom: 25px; right: 25px; background: #0084ff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; }
 
-        footer { padding: 60px; color: #444; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; }
+        footer { padding: 40px; color: #333; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
     <h1 class="bmg-logo">BMG</h1>
-    <div class="sub-logo">BMG BUSSID Multiplayer</div>
+    <div class="sub-logo">BUSSID MULTIPLAYER HUB</div>
 </header>
 
-<div class="clock-container">
-    <div class="digital-clock">
-        <span style="font-family: 'Orbitron'; font-size: 0.7rem; color: #555; letter-spacing: 2px;">COUNTDOWN TO NEXT ROOM</span>
-        <div id="timer">00:00:00</div>
-        <div class="schedule-info">
-            <i class="fas fa-calendar-alt"></i> দুপুর ০২:৩০ | রাত ০৯:০০
-        </div>
-    </div>
+<div class="digital-clock">
+    <div id="timer">00:00:00</div>
+    <div style="color: #444; font-size: 0.8rem; letter-spacing: 1px;">NEXT MATCH AT 02:30 PM & 09:00 PM</div>
 </div>
 
 <div class="social-grid">
@@ -210,45 +104,45 @@
     <a href="https://t.me/khucra" class="social-btn btn-telegram" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
 </div>
 
-<h2 style="font-family: 'Orbitron'; color: var(--neon-orange); letter-spacing: 2px; margin-bottom: 30px;">LATEST MODS & SKINS</h2>
-
 <div class="container">
     <div class="card">
-        <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg" alt="Saudia Bus">
+        <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg" alt="Saudia">
         <div class="card-content">
-            <h3>SAUDIA BMG SPECIAL (4K)</h3>
-            <a href="https://drive.google.com/file/d/1TckotrGd1sy2boe1FVwqsiSRpR89iHgv/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD MOD</a>
+            <h3>SAUDIA SPECIAL</h3>
+            <a href="https://drive.google.com/file/d/1TckotrGd1sy2boe1FVwqsiSRpR89iHgv/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
 
     <div class="card">
-        <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg" alt="Hanif">
+        <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg" alt="Hanif V2">
         <div class="card-content">
             <h3>HANIF PREMIUM V2</h3>
-            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn" target="_blank">DOWNLOAD MOD</a>
+            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn" target="_blank">DOWNLOAD</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://i.postimg.cc/bw39KnKw/20260228-023826.jpg" alt="Hanif Skin">
+        <div class="card-content">
+            <h3>HANIF BUS SKIN</h3>
+            <a href="https://drive.google.com/file/d/1-HalrVa1FkDsAT3_35_TEe_H59f1Mtd3/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
 </div>
 
 <div class="rules-section">
-    <h3 class="rules-title">🛑 ROOM RULES 🛑</h3>
-    <ul class="rules-list">
-        <li>১. গাড়ি সবসময় নির্দিষ্ট লাইনে রাখুন।</li>
-        <li>২. গতিসীমা ৮০-১০০ কিমি/ঘণ্টার মধ্যে সীমাবদ্ধ রাখুন।</li>
-        <li>৩. অকারণে ওভারটেক বা হর্ন বাজিয়ে বিরক্ত করবেন না।</li>
-        <li>৪. ইন্ডিকেটর এবং হেডলাইট সঠিকভাবে ব্যবহার করুন।</li>
-        <li>৫. অ্যাডমিনের নির্দেশ মেনে চলুন।</li>
-    </ul>
+    <h3 class="rules-title">🛑 ROOM RULES</h3>
+    <div class="rules-list">
+        • গাড়ি সবসময় বাম লেনে মেনটেইন করুন।<br>
+        • গতিসীমা ৮০-১০০ কিমি/ঘণ্টা বজায় রাখুন।<br>
+        • অকারণে হর্ন বা ওভারটেক করা নিষেধ।<br>
+        • অ্যাডমিনের নির্দেশনা মেনে গাড়ি চালান।
+    </div>
 </div>
 
-<a href="https://m.me/61583460129028" target="_blank" class="messenger-float">
-    <i class="fab fa-facebook-messenger"></i>
-</a>
+<a href="https://m.me/61583460129028" target="_blank" class="messenger-float"><i class="fab fa-facebook-messenger"></i></a>
 
-<footer>
-    &copy; 2026 BMG-BUSSID HUB | OFFICIAL COMMUNITY<br>
-    <small style="letter-spacing: 2px; color: #333;">POWERED BY JCT NISHAT</small>
-</footer>
+<footer>&copy; 2026 BMG-BUSSID HUB | OFFICIAL</footer>
 
 <script>
     function updateTimer() {
@@ -256,25 +150,15 @@
         const times = ["14:30:00", "21:00:00"]; 
         let nextSession = null;
         for (let t of times) {
-            let s = new Date();
-            let [h, m, sec] = t.split(':');
-            s.setHours(h, m, sec);
+            let s = new Date(); let [h, m, sec] = t.split(':'); s.setHours(h, m, sec);
             if (s > now) { nextSession = s; break; }
         }
-        if (!nextSession) {
-            nextSession = new Date();
-            let [h, m, sec] = times[0].split(':');
-            nextSession.setDate(now.getDate() + 1);
-            nextSession.setHours(h, m, sec);
-        }
+        if (!nextSession) { nextSession = new Date(); let [h, m, sec] = times[0].split(':'); nextSession.setDate(now.getDate() + 1); nextSession.setHours(h, m, sec); }
         const diff = nextSession - now;
-        const h = Math.floor(diff / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
+        const h = Math.floor(diff / 3600000); const m = Math.floor((diff % 3600000) / 60000); const s = Math.floor((diff % 60000) / 1000);
         document.getElementById("timer").innerHTML = (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
     }
-    setInterval(updateTimer, 1000);
-    updateTimer();
+    setInterval(updateTimer, 1000); updateTimer();
 </script>
 
 </body>
