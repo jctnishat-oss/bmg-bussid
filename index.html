@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMG-BUSSID | Multiplayer & Skins</title>
+    <title>BMG BUSSID HUB | Pro Gaming Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,7 +22,7 @@
         }
 
         header {
-            width: 100%; padding: 40px 0;
+            width: 100%; padding: 50px 0;
             text-align: center;
             background: linear-gradient(to bottom, rgba(0, 242, 255, 0.1), transparent);
             border-bottom: 2px solid var(--neon-blue);
@@ -30,70 +30,80 @@
 
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem; margin: 0;
+            font-size: 2.5rem; margin: 0;
             background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* কাউন্টডাউন বক্স */
-        .countdown-container {
-            background: rgba(112, 0, 255, 0.1);
-            border: 2px solid var(--neon-blue);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 30px 0;
-            width: 90%;
-            max-width: 500px;
+        /* সার্চ বার */
+        .search-container {
+            margin: 20px 0; width: 90%; max-width: 600px;
+        }
+        .search-container input {
+            width: 100%; padding: 12px 20px;
+            border-radius: 25px; border: 1px solid var(--neon-blue);
+            background: #101624; color: white; outline: none;
+            font-size: 1rem;
+        }
+
+        /* মাল্টিপ্লেয়ার বক্স */
+        .multiplayer-box {
+            background: linear-gradient(45deg, rgba(112, 0, 255, 0.2), rgba(0, 242, 255, 0.1));
+            border: 1px solid var(--neon-blue);
+            padding: 20px; border-radius: 15px;
+            margin: 20px 0; width: 90%; max-width: 600px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
         }
 
-        #timer {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            color: var(--neon-blue);
-            margin: 15px 0;
-            text-shadow: 0 0 10px var(--neon-blue);
+        #timer { font-family: 'Orbitron'; font-size: 2rem; color: var(--neon-blue); margin: 10px 0; }
+
+        /* ভিডিও সেকশন */
+        .video-section {
+            width: 90%; max-width: 800px; margin: 40px 0; text-align: center;
+        }
+        .video-placeholder {
+            width: 100%; aspect-ratio: 16/9;
+            background: #000; border: 1px solid var(--neon-purple);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 15px; color: #555;
         }
 
-        .status-badge {
-            background: #00ff00;
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
+        /* গাইড সেকশন */
+        .guide-section {
+            width: 90%; max-width: 800px; background: #111a28;
+            padding: 25px; border-radius: 15px; margin-bottom: 40px;
         }
+        .guide-section h2 { color: var(--neon-blue); font-family: 'Orbitron'; font-size: 1.2rem; }
+        .guide-step { margin: 10px 0; color: #bdc3c7; }
 
+        /* কার্ড গ্রিড */
         .container {
             width: 90%; max-width: 1100px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px; padding-bottom: 50px;
         }
-
         .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 15px; overflow: hidden;
-            transition: 0.3s;
+            background: var(--card-bg); border-radius: 15px; overflow: hidden;
+            transition: 0.3s; border: 1px solid rgba(255,255,255,0.05);
         }
-
-        .card:hover { transform: translateY(-8px); border-color: var(--neon-blue); }
-
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-
-        .card-content { padding: 20px; text-align: center; }
-
+        .card:hover { transform: translateY(-5px); border-color: var(--neon-blue); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 15px; text-align: center; }
+        
         .download-btn {
-            display: inline-block; width: 85%;
-            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
-            color: white; padding: 12px;
-            text-decoration: none; border-radius: 8px;
-            font-weight: bold;
+            display: inline-block; width: 100%; background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+            color: white; padding: 12px 0; text-decoration: none; border-radius: 10px; font-weight: bold;
         }
 
-        footer { margin: 40px 0; color: #444; }
+        /* ফ্লোটিং বাটন */
+        .float-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            background: #0084ff; color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none; font-size: 1.5rem;
+        }
+
+        footer { padding: 40px; color: #444; text-align: center; width: 100%; }
     </style>
 </head>
 <body>
@@ -103,68 +113,79 @@
     <p>DOWNLOAD SKINS & JOIN MULTIPLAYER</p>
 </header>
 
-<div class="countdown-container">
-    <span class="status-badge">Next Room</span>
-    <h2 style="margin-top: 15px;">মাল্টিপ্লেয়ার শুরু হতে বাকি:</h2>
-    <div id="timer">Loading...</div>
-    <p id="next-time" style="color: #8899a6;">পরবর্তী রুম: দুপুর ০২:৩০ বা রাত ০৯:০০</p>
+<div class="search-container">
+    <input type="text" placeholder="বাসের নাম লিখে সার্চ করুন (যেমন: Hanif)...">
+</div>
+
+<div class="multiplayer-box">
+    <h2 style="font-family: 'Orbitron'; font-size: 1.1rem;">🎮 NEXT MULTIPLAYER ROOM</h2>
+    <div id="timer">00:00:00</div>
+    <p>দুপুর ০২:৩০ | রাত ০৯:০০</p>
+</div>
+
+<div class="video-section">
+    <h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">📹 LATEST GAMEPLAY</h2>
+    <div class="video-placeholder">
+        <p>ভিডিও শীঘ্রই আসছে! ইউটিউবে সাবস্ক্রাইব করে রাখুন।</p>
+    </div>
 </div>
 
 <div class="container">
     <div class="card">
-        <img src="https://i.postimg.cc/TphkDsjr/Photo-260226103343.jpg" alt="Hanif Skin">
+        <img src="https://i.postimg.cc/TphkDsjr/Photo-260226103343.jpg" alt="Hanif">
         <div class="card-content">
-            <h3>BMG HANIF SPECIAL</h3>
+            <h3>HANIF PREMIUM SKIN</h3>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
         </div>
     </div>
-
     <div class="card">
-        <img src="https://i.postimg.cc/ykrbpKYC/Chat-GPT-Image-Feb-27-2026-11-00-02-PM.png" alt="Multiplayer Skin">
+        <img src="https://i.postimg.cc/ykrbpKYC/Chat-GPT-Image-Feb-27-2026-11-00-02-PM.png" alt="Multiplayer">
         <div class="card-content">
-            <h3>GREEN GAMING EDITION</h3>
+            <h3>GAMING MULTIPLAYER SKIN</h3>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
         </div>
     </div>
 </div>
 
+<div class="guide-section">
+    <h2>🛠 HOW TO APPLY SKIN</h2>
+    <div class="guide-step">১. প্রথমে আপনার পছন্দের স্কিনটি ডাউনলোড করুন।</div>
+    <div class="guide-step">২. BUSSID গেমটি ওপেন করে Garage অপশনে যান।</div>
+    <div class="guide-step">৩. Palette (রঙের আইকন) এ ক্লিক করে 'Browse Livery' সিলেক্ট করুন।</div>
+    <div class="guide-step">৪. গ্যালারি থেকে ডাউনলোড করা ছবিটি সিলেক্ট করে 'Apply' দিন।</div>
+</div>
+
+<a href="আপনার-ফেসবুক-লিংক" class="float-btn">💬</a>
+
 <footer>
-    &copy; 2026 BMG-BUSSID | JCT NISHAT
+    &copy; 2026 BMG-BUSSID | JCT NISHAT <br>
+    Developed with ❤️ by Gemini AI
 </footer>
 
 <script>
     function updateTimer() {
         const now = new Date();
-        const times = ["14:30:00", "21:00:00"]; // দুপুর ২:৩০ এবং রাত ৯:০০
+        const times = ["14:30:00", "21:00:00"]; 
         let nextSession = null;
-
-        for (let time of times) {
-            let session = new Date();
-            let [hours, minutes, seconds] = time.split(':');
-            session.setHours(hours, minutes, seconds);
-
-            if (session > now) {
-                nextSession = session;
-                break;
-            }
+        for (let t of times) {
+            let s = new Date();
+            let [h, m, sec] = t.split(':');
+            s.setHours(h, m, sec);
+            if (s > now) { nextSession = s; break; }
         }
-
         if (!nextSession) {
             nextSession = new Date();
-            let [hours, minutes, seconds] = times[0].split(':');
+            let [h, m, sec] = times[0].split(':');
             nextSession.setDate(now.getDate() + 1);
-            nextSession.setHours(hours, minutes, seconds);
+            nextSession.setHours(h, m, sec);
         }
-
         const diff = nextSession - now;
-        const h = Math.floor(diff / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
-
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
         document.getElementById("timer").innerHTML = 
-            (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+            (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
     }
-
     setInterval(updateTimer, 1000);
     updateTimer();
 </script>
