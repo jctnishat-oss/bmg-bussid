@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMG BUSSID HUB | Pro Gaming Store</title>
+    <title>BMG BUSSID HUB | Official Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --neon-blue: #00f2ff;
             --neon-purple: #7000ff;
+            --neon-red: #ff0055;
             --dark-bg: #05080f;
             --card-bg: #0d121d;
         }
@@ -22,7 +24,7 @@
         }
 
         header {
-            width: 100%; padding: 50px 0;
+            width: 100%; padding: 40px 0;
             text-align: center;
             background: linear-gradient(to bottom, rgba(0, 242, 255, 0.1), transparent);
             border-bottom: 2px solid var(--neon-blue);
@@ -30,136 +32,134 @@
 
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem; margin: 0;
+            font-size: 2.2rem; margin: 0;
             background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* সার্চ বার */
-        .search-container {
-            margin: 20px 0; width: 90%; max-width: 600px;
-        }
-        .search-container input {
-            width: 100%; padding: 12px 20px;
-            border-radius: 25px; border: 1px solid var(--neon-blue);
-            background: #101624; color: white; outline: none;
-            font-size: 1rem;
-        }
-
-        /* মাল্টিপ্লেয়ার বক্স */
-        .multiplayer-box {
-            background: linear-gradient(45deg, rgba(112, 0, 255, 0.2), rgba(0, 242, 255, 0.1));
-            border: 1px solid var(--neon-blue);
-            padding: 20px; border-radius: 15px;
-            margin: 20px 0; width: 90%; max-width: 600px;
-            text-align: center;
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            margin: 30px 0 15px;
+            text-transform: uppercase;
+            border-left: 4px solid var(--neon-purple);
+            padding-left: 10px;
+            width: 90%; max-width: 800px;
         }
 
-        #timer { font-family: 'Orbitron'; font-size: 2rem; color: var(--neon-blue); margin: 10px 0; }
-
-        /* ভিডিও সেকশন */
-        .video-section {
-            width: 90%; max-width: 800px; margin: 40px 0; text-align: center;
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            width: 90%; max-width: 800px;
+            margin: 10px 0;
         }
-        .video-placeholder {
-            width: 100%; aspect-ratio: 16/9;
-            background: #000; border: 1px solid var(--neon-purple);
+        .social-btn {
             display: flex; align-items: center; justify-content: center;
-            border-radius: 15px; color: #555;
+            gap: 8px; padding: 12px;
+            border-radius: 8px; text-decoration: none;
+            color: white; font-weight: bold; transition: 0.3s;
+        }
+        .btn-discord { background: #5865F2; }
+        .btn-facebook { background: #1877F2; }
+        .btn-whatsapp { background: #25D366; }
+        .btn-telegram { background: #0088cc; }
+        .social-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        .rules-container {
+            width: 90%; max-width: 800px;
+            background: rgba(255, 0, 85, 0.05);
+            border: 1px solid var(--neon-red);
+            padding: 20px; border-radius: 15px; margin: 20px 0;
         }
 
-        /* গাইড সেকশন */
-        .guide-section {
-            width: 90%; max-width: 800px; background: #111a28;
-            padding: 25px; border-radius: 15px; margin-bottom: 40px;
-        }
-        .guide-section h2 { color: var(--neon-blue); font-family: 'Orbitron'; font-size: 1.2rem; }
-        .guide-step { margin: 10px 0; color: #bdc3c7; }
-
-        /* কার্ড গ্রিড */
         .container {
             width: 90%; max-width: 1100px;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px; padding-bottom: 50px;
+            gap: 20px; padding-bottom: 50px;
         }
-        .card {
-            background: var(--card-bg); border-radius: 15px; overflow: hidden;
-            transition: 0.3s; border: 1px solid rgba(255,255,255,0.05);
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--neon-blue); }
+        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .card img { width: 100%; height: 180px; object-fit: cover; }
         .card-content { padding: 15px; text-align: center; }
-        
         .download-btn {
             display: inline-block; width: 100%; background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
             color: white; padding: 12px 0; text-decoration: none; border-radius: 10px; font-weight: bold;
         }
 
-        /* ফ্লোটিং বাটন */
-        .float-btn {
-            position: fixed; bottom: 20px; right: 20px;
-            background: #0084ff; color: white; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none; font-size: 1.5rem;
+        /* এসএমএস / মেসেঞ্জার ফ্লোটিং বাটন */
+        .messenger-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #0084ff;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 132, 255, 0.5);
+            z-index: 1000;
+            text-decoration: none;
+            transition: 0.3s;
         }
+        .messenger-float:hover { transform: scale(1.1); }
 
-        footer { padding: 40px; color: #444; text-align: center; width: 100%; }
+        footer { padding: 40px; color: #444; text-align: center; }
+
+        #timer { font-family: 'Orbitron'; font-size: 1.8rem; color: var(--neon-blue); text-align: center; margin: 15px 0; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>BMG BUSSID HUB</h1>
-    <p>DOWNLOAD SKINS & JOIN MULTIPLAYER</p>
+    <p>OFFICIAL MODS & COMMUNITY</p>
 </header>
 
-<div class="search-container">
-    <input type="text" placeholder="বাসের নাম লিখে সার্চ করুন (যেমন: Hanif)...">
+<div id="timer">00:00:00</div>
+
+<h2 class="section-title">✅ কমিউনিটিতে যুক্ত হন</h2>
+<div class="social-grid">
+    <a href="https://discord.gg/fUKA2MpFmn" target="_blank" class="social-btn btn-discord"><i class="fab fa-discord"></i> Discord</a>
+    <a href="https://www.facebook.com/groups/4203315063290851/?ref=share&mibextid=NSMWBT" target="_blank" class="social-btn btn-facebook"><i class="fab fa-facebook-f"></i> Group</a>
+    <a href="https://chat.whatsapp.com/KimQEIVWEYNI7AEiqMT4hs" target="_blank" class="social-btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://t.me/khucra" target="_blank" class="social-btn btn-telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
 </div>
 
-<div class="multiplayer-box">
-    <h2 style="font-family: 'Orbitron'; font-size: 1.1rem;">🎮 NEXT MULTIPLAYER ROOM</h2>
-    <div id="timer">00:00:00</div>
-    <p>দুপুর ০২:৩০ | রাত ০৯:০০</p>
+<div class="rules-container">
+    <h2 style="color: var(--neon-red); font-family: 'Orbitron'; font-size: 1.1rem;">⚠️ গেমের নিয়মাবলী</h2>
+    <p>১. Discord-এ জয়েন করা বাধ্যতামূলক।</p>
+    <p>২. গেম ভার্সন মিল থাকতে হবে।</p>
 </div>
 
-<div class="video-section">
-    <h2 style="font-family: 'Orbitron'; color: var(--neon-blue);">📹 LATEST GAMEPLAY</h2>
-    <div class="video-placeholder">
-        <p>ভিডিও শীঘ্রই আসছে! ইউটিউবে সাবস্ক্রাইব করে রাখুন।</p>
-    </div>
-</div>
-
+<h2 class="section-title">🚌 আমাদের বাসের স্কিনসমূহ</h2>
 <div class="container">
     <div class="card">
         <img src="https://i.postimg.cc/TphkDsjr/Photo-260226103343.jpg" alt="Hanif">
         <div class="card-content">
             <h3>HANIF PREMIUM SKIN</h3>
-            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
+            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD</a>
         </div>
     </div>
     <div class="card">
         <img src="https://i.postimg.cc/ykrbpKYC/Chat-GPT-Image-Feb-27-2026-11-00-02-PM.png" alt="Multiplayer">
         <div class="card-content">
-            <h3>GAMING MULTIPLAYER SKIN</h3>
-            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
+            <h3>MULTIPLAYER EDITION</h3>
+            <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD</a>
         </div>
     </div>
 </div>
 
-<div class="guide-section">
-    <h2>🛠 HOW TO APPLY SKIN</h2>
-    <div class="guide-step">১. প্রথমে আপনার পছন্দের স্কিনটি ডাউনলোড করুন।</div>
-    <div class="guide-step">২. BUSSID গেমটি ওপেন করে Garage অপশনে যান।</div>
-    <div class="guide-step">৩. Palette (রঙের আইকন) এ ক্লিক করে 'Browse Livery' সিলেক্ট করুন।</div>
-    <div class="guide-step">৪. গ্যালারি থেকে ডাউনলোড করা ছবিটি সিলেক্ট করে 'Apply' দিন।</div>
-</div>
-
-<a href="আপনার-ফেসবুক-লিংক" class="float-btn">💬</a>
+<a href="https://m.me/61583460129028" target="_blank" class="messenger-float">
+    <i class="fab fa-facebook-messenger"></i>
+</a>
 
 <footer>
-    &copy; 2026 BMG-BUSSID | JCT NISHAT <br>
-    Developed with ❤️ by Gemini AI
+    &copy; 2026 BMG-BUSSID | JCT NISHAT
 </footer>
 
 <script>
@@ -183,8 +183,7 @@
         const h = Math.floor(diff / 3600000);
         const m = Math.floor((diff % 3600000) / 60000);
         const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById("timer").innerHTML = 
-            (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+        document.getElementById("timer").innerHTML = "NEXT ROOM: " + (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
     }
     setInterval(updateTimer, 1000);
     updateTimer();
