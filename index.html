@@ -7,142 +7,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #00f2ff; /* গেমিং সাইয়ান */
-            --secondary-color: #7000ff; /* গেমিং পার্পল */
+            --primary-color: #00f2ff;
+            --secondary-color: #7000ff;
             --bg-dark: #05080f;
             --card-bg: #101624;
         }
-
         body {
             background-color: var(--bg-dark);
             color: #fff;
             font-family: 'Rajdhani', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
-
-        /* অ্যানিমেটেড ব্যাকগ্রাউন্ড */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1f35 0%, #05080f 100%);
-            z-index: -1;
-        }
-
         header {
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
             background: linear-gradient(to bottom, rgba(0, 242, 255, 0.1), transparent);
             border-bottom: 1px solid rgba(0, 242, 255, 0.2);
         }
-
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 5px;
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
         }
-
-        header p {
-            font-size: 1.2rem;
-            color: #8899a6;
-            margin-top: 10px;
-        }
-
         .container {
-            max-width: 1200px;
-            margin: 50px auto;
+            max-width: 1000px;
+            margin: 40px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             padding: 20px;
         }
-
-        /* গেমিং কার্ড ডিজাইন */
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
         }
-
         .card:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px);
             border-color: var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
         }
-
         .card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            filter: brightness(0.8);
-            transition: 0.4s;
         }
-
-        .card:hover img {
-            filter: brightness(1.1);
-        }
-
         .card-content {
-            padding: 25px;
-            background: linear-gradient(to top, #101624, transparent);
+            padding: 20px;
+            text-align: center;
         }
-
         .card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            margin: 0 0 10px;
             color: var(--primary-color);
+            margin: 0 0 10px;
         }
-
-        .card p {
-            font-size: 1rem;
-            color: #bdc3c7;
-            margin-bottom: 20px;
-        }
-
-        /* গ্লোয়িং ডাউনলোড বাটন */
         .download-btn {
             display: block;
-            text-align: center;
             background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
             color: white;
             padding: 12px;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
-            font-size: 1.1rem;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(112, 0, 255, 0.4);
-            transition: 0.3s;
-        }
-
-        .download-btn:hover {
-            letter-spacing: 2px;
-            box-shadow: 0 0 25px var(--primary-color);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #555;
-            font-size: 0.9rem;
-        }
-
-        /* মোবাইল ফ্রেন্ডলি অ্যাডজাস্টমেন্ট */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -150,42 +84,33 @@
 
 <header>
     <h1>BMG BUSSID HUB</h1>
-    <p>DOWNLOAD PREMIUM SKINS & MODS</p>
+    <p>PREMIUM SKINS & MODS</p>
 </header>
 
 <div class="container">
     
     <div class="card">
-        <img src="https://i.postimg.cc/mD8Nf9n0/hanif.jpg" alt="Hanif Skin">
+        <img src="https://i.postimg.cc/TphkDsjr/Photo-260226103343.jpg" alt="Bus Skin 1">
         <div class="card-content">
-            <h3>HANIF HINO AK1J</h3>
-            <p>High quality skin for Bus Simulator Indonesia. Special BMG Edition.</p>
+            <h3>RED PREMIUM BUS</h3>
+            <p>High quality skin for Bus Simulator Indonesia.</p>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
         </div>
     </div>
 
     <div class="card">
-        <img src="https://i.postimg.cc/vH2kYm3G/sheba.jpg" alt="Sheba Skin">
+        <img src="https://i.postimg.cc/ykrbpKYC/Chat-GPT-Image-Feb-27-2026-11-00-02-PM.png" alt="Bus Skin 2">
         <div class="card-content">
-            <h3>SHEBA GREEN LINE</h3>
-            <p>Srikandi SHD Skin with realistic reflection and stickers.</p>
+            <h3>GREEN GAMING BUS</h3>
+            <p>Realistic livery with premium textures.</p>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn">DOWNLOAD NOW</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="https://via.placeholder.com/400x250/101624/00f2ff?text=More+Skins+Coming" alt="Coming Soon">
-        <div class="card-content">
-            <h3>NEW MODS</h3>
-            <p>আমাদের ইউটিউব চ্যানেলে নজর রাখুন নতুন মোডের জন্য।</p>
-            <a href="#" class="download-btn">COMING SOON</a>
         </div>
     </div>
 
 </div>
 
 <footer>
-    &copy; 2026 BMG-BUSSID. Created by JCT Nishat.
+    <p style="text-align: center; color: #444; margin-top: 50px;">&copy; 2026 BMG-BUSSID</p>
 </footer>
 
 </body>
