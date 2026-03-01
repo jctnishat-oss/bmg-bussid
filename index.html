@@ -23,34 +23,73 @@
             background-image: radial-gradient(circle at 50% 50%, #0d121d 0%, #030509 100%);
         }
 
-        header { width: 100%; padding: 60px 0 30px; text-align: center; }
+        header { width: 100%; padding: 40px 0 20px; text-align: center; }
 
         .bmg-logo {
             font-family: 'Black Ops One', cursive;
-            font-size: 5.5rem;
+            font-size: clamp(3rem, 10vw, 5.5rem);
             margin: 0;
             color: var(--bmg-blue);
             text-transform: uppercase;
             letter-spacing: 8px;
             text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-            animation: soft-pulse 4s ease-in-out infinite;
         }
 
-        @keyframes soft-pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.9; transform: scale(0.98); }
+        /* --- অ্যানিমেটেড ব্যানার (Hero Slider) --- */
+        .hero-slider {
+            width: 90%; max-width: 1000px;
+            height: 350px;
+            margin: 20px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+        }
+        .slides { display: flex; width: 400%; height: 100%; animation: slideAnim 15s infinite; }
+        .slide { width: 25%; height: 100%; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
+        .slide-text {
+            position: absolute; bottom: 30px; left: 30px;
+            font-family: 'Orbitron'; color: #fff;
+            text-shadow: 2px 2px 10px #000;
         }
 
-        .sub-logo { font-family: 'Orbitron'; font-size: 1rem; color: #555; letter-spacing: 3px; margin-top: 5px; font-weight: bold; }
+        @keyframes slideAnim {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); }
+            25% { transform: translateX(-25%); }
+            45% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            70% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            95% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* --- সার্চ বক্স --- */
+        .search-container {
+            width: 85%; max-width: 500px;
+            margin: 20px 0; position: relative;
+        }
+        #skinSearch {
+            width: 100%; padding: 15px 45px 15px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--bmg-blue);
+            border-radius: 30px; color: #fff;
+            font-family: 'Rajdhani'; font-size: 1.1rem;
+            outline: none; transition: 0.3s;
+        }
+        #skinSearch:focus { background: rgba(0, 212, 255, 0.1); box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); }
+        .search-icon { position: absolute; right: 20px; top: 16px; color: var(--bmg-blue); }
 
         .digital-clock {
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid rgba(255, 159, 0, 0.2);
-            padding: 25px; border-radius: 15px;
-            text-align: center; margin: 20px 0; width: 85%; max-width: 380px;
+            padding: 20px; border-radius: 15px;
+            text-align: center; margin: 10px 0; width: 85%; max-width: 350px;
         }
-
-        #timer { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; color: var(--neon-orange); text-shadow: 0 0 10px rgba(255,159,0,0.4); }
+        #timer { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--neon-orange); }
 
         .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; width: 90%; max-width: 650px; margin: 20px 0; }
         .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; font-size: 0.9rem; }
@@ -64,27 +103,21 @@
         }
 
         .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s; }
-        .card img { width: 100%; height: 200px; object-fit: cover; image-rendering: -webkit-optimize-contrast; }
+        .card:hover { transform: translateY(-10px); border-color: var(--bmg-blue); }
+        .card img { width: 100%; height: 200px; object-fit: cover; transition: 0.5s; }
+        .card:hover img { transform: scale(1.1); }
         .card-content { padding: 20px; text-align: center; }
         .card-content h3 { font-family: 'Orbitron'; font-size: 0.9rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; }
         .download-btn { display: inline-block; width: 100%; background: linear-gradient(45deg, #222, #444); color: white; padding: 12px 0; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Orbitron'; font-size: 0.8rem; border: 1px solid #555; }
         .download-btn:hover { background: var(--bmg-blue); color: #000; border-color: var(--bmg-blue); }
 
-        .nickname-box {
-            width: 90%; max-width: 800px;
-            background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent);
-            border-left: 5px solid var(--bmg-blue);
-            padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center;
-        }
-        .nickname-box h4 { font-family: 'Orbitron'; margin: 0 0 10px; color: var(--bmg-blue); letter-spacing: 2px; }
+        .nickname-box { width: 90%; max-width: 800px; background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent); border-left: 5px solid var(--bmg-blue); padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; }
         .tag-display { font-size: 1.8rem; font-weight: bold; color: #fff; background: #000; padding: 10px 20px; border-radius: 5px; display: inline-block; margin: 10px 0; border: 1px dashed var(--bmg-blue); }
 
         .rules-section { width: 90%; max-width: 800px; background: rgba(255, 0, 51, 0.05); border: 1px solid #ff0033; border-radius: 15px; padding: 25px; margin-bottom: 50px; }
         .rules-title { font-family: 'Orbitron'; color: #ff0033; font-size: 1.2rem; text-align: center; margin-bottom: 15px; }
-        .rules-list { line-height: 2; color: #ccc; font-size: 0.95rem; }
 
-        .messenger-float { position: fixed; bottom: 25px; right: 25px; background: #0084ff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; }
-
+        .messenger-float { position: fixed; bottom: 25px; right: 25px; background: #0084ff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; transition: 0.3s; }
         footer { padding: 40px; color: #333; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; font-size: 0.8rem; }
     </style>
 </head>
@@ -92,12 +125,38 @@
 
 <header>
     <h1 class="bmg-logo">BMG</h1>
-    <div class="sub-logo">BUSSID MULTIPLAYER HUB</div>
+    <div style="font-family: 'Orbitron'; color: #555; letter-spacing: 3px;">BUSSID MULTIPLAYER HUB</div>
 </header>
+
+<div class="hero-slider">
+    <div class="slides">
+        <div class="slide">
+            <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg">
+            <div class="slide-text"><h2>PREMIUM SAUDIA</h2><p>Exclusive 4K Skins</p></div>
+        </div>
+        <div class="slide">
+            <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg">
+            <div class="slide-text"><h2>HANIF V2</h2><p>Real Experience</p></div>
+        </div>
+        <div class="slide">
+            <img src="https://i.postimg.cc/xd3DJxrn/1772251242011.png">
+            <div class="slide-text"><h2>BANGLADESHI OBB</h2><p>New Map & Sounds</p></div>
+        </div>
+        <div class="slide">
+            <img src="https://i.postimg.cc/jS6M65Xj/Chat-GPT-Image-Mar-1-2026-05-11-31-PM.png">
+            <div class="slide-text"><h2>BMG GROUP SPECIAL</h2><p>Community Choice</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="search-container">
+    <input type="text" id="skinSearch" placeholder="স্কিন বা ওবিবি খুঁজুন (যেমন: Hanif, Saudia)..." onkeyup="searchSkins()">
+    <i class="fas fa-search search-icon"></i>
+</div>
 
 <div class="digital-clock">
     <div id="timer">00:00:00</div>
-    <div style="color: #444; font-size: 0.8rem; letter-spacing: 1px;">NEXT MATCH AT 02:30 PM & 09:00 PM</div>
+    <div style="color: #444; font-size: 0.8rem;">NEXT MATCH AT 02:30 PM & 09:00 PM</div>
 </div>
 
 <div class="social-grid">
@@ -107,49 +166,49 @@
     <a href="https://t.me/khucra" class="social-btn btn-telegram" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
 </div>
 
-<div class="container">
-    <div class="card">
-        <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg" alt="Saudia">
+<div class="container" id="skinGrid">
+    <div class="card" data-name="saudia special">
+        <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg">
         <div class="card-content">
             <h3>SAUDIA SPECIAL</h3>
             <a href="https://drive.google.com/file/d/1TckotrGd1sy2boe1FVwqsiSRpR89iHgv/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
 
-    <div class="card">
-        <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg" alt="Hanif V2">
+    <div class="card" data-name="hanif premium v2">
+        <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg">
         <div class="card-content">
             <h3>HANIF PREMIUM V2</h3>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
 
-    <div class="card">
-        <img src="https://i.postimg.cc/bw39KnKw/20260228-023826.jpg" alt="Hanif Skin">
+    <div class="card" data-name="hanif bus skin">
+        <img src="https://i.postimg.cc/bw39KnKw/20260228-023826.jpg">
         <div class="card-content">
             <h3>HANIF BUS SKIN</h3>
             <a href="https://drive.google.com/file/d/1-HalrVa1FkDsAT3_35_TEe_H59f1Mtd3/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
 
-    <div class="card">
-        <img src="https://i.postimg.cc/xd3DJxrn/1772251242011.png" alt="Bangladeshi OBB">
+    <div class="card" data-name="bangladeshi obb">
+        <img src="https://i.postimg.cc/xd3DJxrn/1772251242011.png">
         <div class="card-content">
             <h3>BANGLADESHI OBB</h3>
             <a href="https://drive.google.com/drive/folders/1eL3o9p77wz8b_dTCBSBGOGc-rNYkPuOQ" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
 
-    <div class="card">
-        <img src="https://i.postimg.cc/nrw6g0j0/Picsart-26-02-28-20-04-33-608.png" alt="Hanif Premium Skin">
+    <div class="card" data-name="hanif premium skin">
+        <img src="https://i.postimg.cc/nrw6g0j0/Picsart-26-02-28-20-04-33-608.png">
         <div class="card-content">
             <h3>HANIF PREMIUM SKIN</h3>
             <a href="https://drive.google.com/drive/folders/1NIbDOci8r6wN3g_UUSnRbbRz1yPY9LvQ" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
 
-    <div class="card">
-        <img src="https://i.postimg.cc/jS6M65Xj/Chat-GPT-Image-Mar-1-2026-05-11-31-PM.png" alt="BMG GROUP Premium Skin">
+    <div class="card" data-name="bmg group premium skin">
+        <img src="https://i.postimg.cc/jS6M65Xj/Chat-GPT-Image-Mar-1-2026-05-11-31-PM.png">
         <div class="card-content">
             <h3>BMG GROUP PREMIUM SKIN</h3>
             <a href="https://drive.google.com/drive/folders/1WxqvxUdkvEkXlLhwg7e89ne5YWLHQs6s" class="download-btn" target="_blank">DOWNLOAD</a>
@@ -160,16 +219,14 @@
 <div class="nickname-box">
     <h4>⚠️ OFFICIAL PLAYER TAG ⚠️</h4>
     <div class="tag-display">‎☯ᴇʙʟ (আপনার নাম)</div>
-    <p style="color: #666; font-size: 0.8rem;">উদাহরণ: ‎☯ᴇʙʟ NISHAT</p>
 </div>
 
 <div class="rules-section">
     <h3 class="rules-title">🛑 ROOM RULES</h3>
-    <div class="rules-list">
-        • গাড়ি সবসময় বাম লেনে মেনটেইন করুন।<br>
-        • গতিসীমা ৮০-১০০ কিমি/ঘণ্টা বজায় রাখুন।<br>
-        • অকারণে হর্ন বা ওভারটেক করা নিষেধ।<br>
-        • অ্যাডমিনের নির্দেশনা মেনে গাড়ি চালান।
+    <div style="line-height: 2; color: #ccc; text-align: center;">
+        • গাড়ি বাম লেনে মেনটেইন করুন।<br>
+        • গতিসীমা ৮০-১০০ কিমি/ঘণ্টা।<br>
+        • অকারণে ওভারটেক নিষেধ।
     </div>
 </div>
 
@@ -178,6 +235,18 @@
 <footer>&copy; 2026 BMG-BUSSID HUB | OFFICIAL</footer>
 
 <script>
+    // সার্চ ফাংশন
+    function searchSkins() {
+        let input = document.getElementById('skinSearch').value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+        for (let i = 0; i < cards.length; i++) {
+            let name = cards[i].getAttribute('data-name');
+            if (name.includes(input)) { cards[i].style.display = "block"; } 
+            else { cards[i].style.display = "none"; }
+        }
+    }
+
+    // টাইমার ফাংশন
     function updateTimer() {
         const now = new Date();
         const times = ["14:30:00", "21:00:00"]; 
@@ -195,4 +264,4 @@
 </script>
 
 </body>
-</html>
+        </html>
