@@ -23,77 +23,79 @@
             background-image: radial-gradient(circle at 50% 50%, #0d121d 0%, #030509 100%);
         }
 
-        header { width: 100%; padding: 60px 0 30px; text-align: center; }
-        .bmg-logo { font-family: 'Black Ops One', cursive; font-size: 5.5rem; margin: 0; color: var(--bmg-blue); text-transform: uppercase; letter-spacing: 8px; text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
-        .sub-logo { font-family: 'Orbitron'; font-size: 1.1rem; color: #555; letter-spacing: 3px; margin-top: 5px; font-weight: bold; }
+        header { width: 100%; padding: 50px 0 20px; text-align: center; }
+        .bmg-logo { font-family: 'Black Ops One', cursive; font-size: 5.5rem; margin: 0; color: var(--bmg-blue); text-transform: uppercase; letter-spacing: 8px; text-shadow: 0 0 15px rgba(0, 212, 255, 0.6); }
 
-        /* টাইমার ও সোশ্যাল গ্রিড */
-        .digital-clock { background: rgba(0, 0, 0, 0.8); border: 1px solid rgba(255, 159, 0, 0.2); padding: 25px; border-radius: 15px; text-align: center; margin: 20px 0; width: 85%; max-width: 380px; }
-        #timer { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; color: var(--neon-orange); }
+        /* --- প্রিমিয়াম নিওন টাইমার --- */
+        .timer-container {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--border-color, rgba(255, 159, 0, 0.3));
+            padding: 30px; border-radius: 25px;
+            text-align: center; margin: 30px 0;
+            box-shadow: inset 0 0 20px rgba(255, 159, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.5);
+            position: relative; overflow: hidden;
+        }
+        .timer-label { font-family: 'Orbitron'; font-size: 0.7rem; color: #666; letter-spacing: 4px; margin-bottom: 10px; text-transform: uppercase; }
+        #timer { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: 3.5rem; 
+            color: var(--neon-orange); 
+            text-shadow: 0 0 20px rgba(255, 159, 0, 0.7), 0 0 40px rgba(255, 159, 0, 0.3);
+            font-weight: 900;
+            letter-spacing: 5px;
+        }
+        .timer-msg { font-size: 0.9rem; color: var(--bmg-blue); margin-top: 10px; font-weight: bold; opacity: 0.8; }
+
         .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; width: 90%; max-width: 650px; margin: 20px 0; }
-        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; font-size: 0.9rem; }
+        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1); }
         .btn-discord { background: #5865F2; } .btn-facebook { background: #1877F2; } .btn-whatsapp { background: #25D366; } .btn-telegram { background: #0088cc; }
 
-        /* কন্টেইনার ও কার্ড ডিজাইন */
         .container { width: 95%; max-width: 1200px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 30px 0 60px; }
-        
-        .card { 
-            background: var(--card-bg); 
-            border-radius: 15px; 
-            overflow: hidden; 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            transition: 0.4s; 
-            position: relative; /* ট্যাগের জন্য */
-        }
-        
-        .card:hover { transform: translateY(-10px); border-color: var(--bmg-blue); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.1); }
+        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s; position: relative; }
+        .card:hover { transform: translateY(-10px); border-color: var(--bmg-blue); }
         .card img { width: 100%; height: 200px; object-fit: cover; transition: 0.5s; }
-        .card:hover img { transform: scale(1.1); }
         
-        /* --- NEW & HOT TAGS --- */
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-family: 'Orbitron';
-            font-size: 0.7rem;
-            font-weight: bold;
-            z-index: 10;
-            text-transform: uppercase;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
+        .badge { position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 20px; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: bold; z-index: 10; text-transform: uppercase; }
         .badge-new { background: var(--bmg-blue); color: #000; }
-        .badge-hot { background: #ff0033; color: #fff; animation: glow 1.5s infinite; }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px #ff0033; }
-            50% { box-shadow: 0 0 15px #ff0033; }
-        }
+        .badge-hot { background: #ff0033; color: #fff; box-shadow: 0 0 10px #ff0033; }
 
         .card-content { padding: 20px; text-align: center; }
-        .card-content h3 { font-family: 'Orbitron'; font-size: 0.9rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; }
-        .download-btn { display: inline-block; width: 100%; background: linear-gradient(45deg, #222, #444); color: white; padding: 12px 0; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Orbitron'; font-size: 0.8rem; border: 1px solid #555; }
+        .card-content h3 { font-family: 'Orbitron'; font-size: 0.9rem; color: #fff; margin-bottom: 15px; }
+        .download-btn { display: inline-block; width: 100%; background: linear-gradient(45deg, #111, #333); color: white; padding: 12px 0; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Orbitron'; font-size: 0.8rem; border: 1px solid #444; }
         .download-btn:hover { background: var(--bmg-blue); color: #000; border-color: var(--bmg-blue); }
 
-        .nickname-box { width: 90%; max-width: 800px; background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent); border-left: 5px solid var(--bmg-blue); padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; }
-        .tag-display { font-size: 1.8rem; font-weight: bold; color: #fff; background: #000; padding: 10px 20px; border-radius: 5px; display: inline-block; margin: 10px 0; border: 1px dashed var(--bmg-blue); }
+        /* --- রুলস সেকশন (ফিরে এল) --- */
+        .rules-section { 
+            width: 90%; max-width: 800px; 
+            background: rgba(255, 0, 51, 0.03); 
+            border: 1px solid rgba(255, 0, 51, 0.3); 
+            border-radius: 20px; padding: 30px; 
+            margin: 40px 0 60px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .rules-title { font-family: 'Orbitron'; color: #ff0033; font-size: 1.3rem; text-align: center; margin-bottom: 20px; letter-spacing: 2px; }
+        .rules-list { line-height: 2.2; color: #bbb; font-size: 1rem; list-style: none; padding: 0; text-align: center; }
+        .rules-list i { color: #ff0033; margin-right: 10px; }
 
-        .messenger-float { position: fixed; bottom: 25px; right: 25px; background: #0084ff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; }
-        footer { padding: 40px; color: #333; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; font-size: 0.8rem; }
+        .nickname-box { width: 90%; max-width: 800px; background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent); border-left: 5px solid var(--bmg-blue); padding: 25px; border-radius: 10px; margin-bottom: 30px; text-align: center; }
+        .tag-display { font-size: 1.8rem; font-weight: bold; color: #fff; background: #000; padding: 10px 25px; border-radius: 5px; display: inline-block; margin: 10px 0; border: 1px dashed var(--bmg-blue); }
+
+        .messenger-float { position: fixed; bottom: 25px; right: 25px; background: #0084ff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; box-shadow: 0 5px 15px rgba(0, 132, 255, 0.4); }
+        
+        footer { padding: 50px; color: #444; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; font-size: 0.8rem; font-family: 'Orbitron'; }
     </style>
 </head>
 <body>
 
 <header>
     <h1 class="bmg-logo">BMG</h1>
-    <div class="sub-logo">BUSSID MULTIPLAYER HUB</div>
+    <div style="font-family: 'Orbitron'; color: #555; letter-spacing: 4px; font-weight: bold;">BUSSID MULTIPLAYER HUB</div>
 </header>
 
-<div class="digital-clock">
+<div class="timer-container">
+    <div class="timer-label">Next Mission Starts In</div>
     <div id="timer">00:00:00</div>
-    <div style="color: #444; font-size: 0.8rem; letter-spacing: 1px;">NEXT MATCH AT 02:30 PM & 09:00 PM</div>
+    <div class="timer-msg">JOIN AT 02:30 PM & 09:00 PM</div>
 </div>
 
 <div class="social-grid">
@@ -106,7 +108,7 @@
 <div class="container">
     <div class="card">
         <span class="badge badge-hot">HOT</span>
-        <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg" alt="Saudia">
+        <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg">
         <div class="card-content">
             <h3>SAUDIA SPECIAL</h3>
             <a href="https://drive.google.com/file/d/1TckotrGd1sy2boe1FVwqsiSRpR89iHgv/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD</a>
@@ -114,7 +116,7 @@
     </div>
 
     <div class="card">
-        <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg" alt="Hanif V2">
+        <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg">
         <div class="card-content">
             <h3>HANIF PREMIUM V2</h3>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn" target="_blank">DOWNLOAD</a>
@@ -122,7 +124,7 @@
     </div>
 
     <div class="card">
-        <img src="https://i.postimg.cc/bw39KnKw/20260228-023826.jpg" alt="Hanif Skin">
+        <img src="https://i.postimg.cc/bw39KnKw/20260228-023826.jpg">
         <div class="card-content">
             <h3>HANIF BUS SKIN</h3>
             <a href="https://drive.google.com/file/d/1-HalrVa1FkDsAT3_35_TEe_H59f1Mtd3/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD</a>
@@ -130,7 +132,7 @@
     </div>
 
     <div class="card">
-        <img src="https://i.postimg.cc/xd3DJxrn/1772251242011.png" alt="Bangladeshi OBB">
+        <img src="https://i.postimg.cc/xd3DJxrn/1772251242011.png">
         <div class="card-content">
             <h3>BANGLADESHI OBB</h3>
             <a href="https://drive.google.com/drive/folders/1eL3o9p77wz8b_dTCBSBGOGc-rNYkPuOQ" class="download-btn" target="_blank">DOWNLOAD</a>
@@ -138,7 +140,7 @@
     </div>
 
     <div class="card">
-        <img src="https://i.postimg.cc/nrw6g0j0/Picsart-26-02-28-20-04-33-608.png" alt="Hanif Premium Skin">
+        <img src="https://i.postimg.cc/nrw6g0j0/Picsart-26-02-28-20-04-33-608.png">
         <div class="card-content">
             <h3>HANIF PREMIUM SKIN</h3>
             <a href="https://drive.google.com/drive/folders/1NIbDOci8r6wN3g_UUSnRbbRz1yPY9LvQ" class="download-btn" target="_blank">DOWNLOAD</a>
@@ -147,7 +149,7 @@
 
     <div class="card">
         <span class="badge badge-new">NEW</span>
-        <img src="https://i.postimg.cc/jS6M65Xj/Chat-GPT-Image-Mar-1-2026-05-11-31-PM.png" alt="BMG GROUP Premium Skin">
+        <img src="https://i.postimg.cc/jS6M65Xj/Chat-GPT-Image-Mar-1-2026-05-11-31-PM.png">
         <div class="card-content">
             <h3>BMG GROUP PREMIUM SKIN</h3>
             <a href="https://drive.google.com/drive/folders/1WxqvxUdkvEkXlLhwg7e89ne5YWLHQs6s" class="download-btn" target="_blank">DOWNLOAD</a>
@@ -160,9 +162,19 @@
     <div class="tag-display">‎☯ᴇʙʟ (আপনার নাম)</div>
 </div>
 
+<div class="rules-section">
+    <h3 class="rules-title"><i class="fas fa-exclamation-triangle"></i> BMG ROOM RULES</h3>
+    <ul class="rules-list">
+        <li><i class="fas fa-check-circle"></i> গাড়ি সবসময় বাম লেনে মেনটেইন করুন।</li>
+        <li><i class="fas fa-check-circle"></i> গতিসীমা ৮০-১০০ কিমি/ঘণ্টা বজায় রাখুন।</li>
+        <li><i class="fas fa-check-circle"></i> অকারণে হর্ন বা ওভারটেক করা কঠোরভাবে নিষেধ।</li>
+        <li><i class="fas fa-check-circle"></i> শুধুমাত্র অ্যাডমিনের নির্দেশনা মেনে গাড়ি চালান।</li>
+    </ul>
+</div>
+
 <a href="https://m.me/61583460129028" target="_blank" class="messenger-float"><i class="fab fa-facebook-messenger"></i></a>
 
-<footer>&copy; 2026 BMG-BUSSID HUB | OFFICIAL</footer>
+<footer>&copy; 2026 BMG-BUSSID HUB | DESIGNED FOR PRO GAMERS</footer>
 
 <script>
     function updateTimer() {
