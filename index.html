@@ -31,57 +31,75 @@
             background: rgba(0, 0, 0, 0.6);
             border: 2px solid rgba(255, 159, 0, 0.3);
             padding: 30px; border-radius: 25px;
-            text-align: center; margin: 30px 0;
+            text-align: center; margin: 20px 0;
             box-shadow: inset 0 0 20px rgba(255, 159, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.5);
-            position: relative; overflow: hidden;
         }
-        .timer-label { font-family: 'Orbitron'; font-size: 0.7rem; color: #666; letter-spacing: 4px; margin-bottom: 10px; text-transform: uppercase; }
-        #timer { 
-            font-family: 'Orbitron', sans-serif; 
-            font-size: 3.5rem; 
-            color: var(--neon-orange); 
-            text-shadow: 0 0 20px rgba(255, 159, 0, 0.7), 0 0 40px rgba(255, 159, 0, 0.3);
-            font-weight: 900;
-            letter-spacing: 5px;
+        #timer { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; color: var(--neon-orange); text-shadow: 0 0 20px rgba(255, 159, 0, 0.7); font-weight: 900; }
+
+        /* --- ফেসবুক ফলো ইভেন্ট সেকশন --- */
+        .event-card {
+            width: 90%; max-width: 800px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 159, 0, 0.05));
+            border: 2px dashed var(--bmg-blue);
+            border-radius: 20px; padding: 25px;
+            margin: 30px 0; text-align: center;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
         }
-        .timer-msg { font-size: 0.9rem; color: var(--bmg-blue); margin-top: 10px; font-weight: bold; opacity: 0.8; }
+        .event-title { font-family: 'Orbitron'; color: var(--neon-orange); font-size: 1.4rem; margin-bottom: 15px; text-shadow: 0 0 10px rgba(255, 159, 0, 0.5); }
+        
+        .progress-box {
+            background: #111; border-radius: 30px; height: 35px; 
+            width: 100%; margin: 20px 0; position: relative; overflow: hidden;
+            border: 1px solid #333;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #00d4ff, #0084ff);
+            height: 100%; width: 92%; /* ফলোয়ার বাড়লে এই % বাড়িয়ে দিবেন */
+            box-shadow: 0 0 20px var(--bmg-blue);
+            transition: 2s ease-in-out;
+        }
+        .progress-label {
+            position: absolute; width: 100%; top: 8px; left: 0;
+            font-weight: bold; font-size: 0.9rem; color: #fff; font-family: 'Orbitron';
+        }
 
-        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; width: 90%; max-width: 650px; margin: 20px 0; }
-        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1); }
-        .btn-discord { background: #5865F2; } .btn-facebook { background: #1877F2; } .btn-whatsapp { background: #25D366; } .btn-telegram { background: #0088cc; }
+        .follow-now-btn {
+            display: inline-block; padding: 15px 45px;
+            background: #1877F2; color: white;
+            text-decoration: none; border-radius: 50px;
+            font-family: 'Orbitron'; font-weight: bold;
+            font-size: 1.1rem; margin-top: 10px;
+            transition: 0.3s; box-shadow: 0 5px 20px rgba(24, 119, 242, 0.5);
+        }
+        .follow-now-btn:hover { transform: scale(1.1); background: #1565c0; }
 
-        .container { width: 95%; max-width: 1200px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 30px 0 60px; }
+        /* গ্রিড ও কার্ড */
+        .container { width: 95%; max-width: 1200px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding-bottom: 60px; }
         .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s; position: relative; }
         .card:hover { transform: translateY(-10px); border-color: var(--bmg-blue); }
-        .card img { width: 100%; height: 200px; object-fit: cover; transition: 0.5s; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
         
-        .badge { position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 20px; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: bold; z-index: 10; text-transform: uppercase; }
+        .badge { position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 20px; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: bold; z-index: 10; }
         .badge-new { background: var(--bmg-blue); color: #000; }
         .badge-hot { background: #ff0033; color: #fff; box-shadow: 0 0 10px #ff0033; }
 
         .card-content { padding: 20px; text-align: center; }
-        .card-content h3 { font-family: 'Orbitron'; font-size: 0.9rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; }
         .download-btn { display: inline-block; width: 100%; background: linear-gradient(45deg, #111, #333); color: white; padding: 12px 0; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Orbitron'; font-size: 0.8rem; border: 1px solid #444; }
-        .download-btn:hover { background: var(--bmg-blue); color: #000; border-color: var(--bmg-blue); }
+        .download-btn:hover { background: var(--bmg-blue); color: #000; }
 
+        /* রুলস সেকশন */
         .rules-section { 
             width: 90%; max-width: 800px; 
-            background: rgba(255, 0, 51, 0.03); 
-            border: 1px solid rgba(255, 0, 51, 0.3); 
-            border-radius: 20px; padding: 30px; 
-            margin: 40px 0 60px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: rgba(255, 0, 51, 0.03); border: 1px solid rgba(255, 0, 51, 0.3); 
+            border-radius: 20px; padding: 30px; margin-bottom: 60px;
         }
-        .rules-title { font-family: 'Orbitron'; color: #ff0033; font-size: 1.3rem; text-align: center; margin-bottom: 20px; letter-spacing: 2px; }
-        .rules-list { line-height: 2.2; color: #bbb; font-size: 1rem; list-style: none; padding: 0; text-align: center; }
-        .rules-list i { color: #ff0033; margin-right: 10px; }
+        .rules-title { font-family: 'Orbitron'; color: #ff0033; font-size: 1.3rem; text-align: center; margin-bottom: 20px; }
+        .rules-list { line-height: 2.2; color: #bbb; list-style: none; padding: 0; text-align: center; }
 
         .nickname-box { width: 90%; max-width: 800px; background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent); border-left: 5px solid var(--bmg-blue); padding: 25px; border-radius: 10px; margin-bottom: 30px; text-align: center; }
-        .tag-display { font-size: 1.8rem; font-weight: bold; color: #fff; background: #000; padding: 10px 25px; border-radius: 5px; display: inline-block; margin: 10px 0; border: 1px dashed var(--bmg-blue); }
+        .tag-display { font-size: 1.8rem; font-weight: bold; color: #fff; background: #000; padding: 10px 25px; border-radius: 5px; display: inline-block; border: 1px dashed var(--bmg-blue); }
 
-        .messenger-float { position: fixed; bottom: 25px; right: 25px; background: #0084ff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; box-shadow: 0 5px 15px rgba(0, 132, 255, 0.4); }
-        
-        footer { padding: 50px; color: #444; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; font-size: 0.8rem; font-family: 'Orbitron'; }
+        .messenger-float { position: fixed; bottom: 25px; right: 25px; background: #0084ff; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -92,24 +110,34 @@
 </header>
 
 <div class="timer-container">
-    <div class="timer-label">Next Mission Starts In</div>
+    <div style="font-family: 'Orbitron'; font-size: 0.7rem; color: #666; letter-spacing: 4px; margin-bottom: 10px;">Next Mission Starts In</div>
     <div id="timer">00:00:00</div>
-    <div class="timer-msg">JOIN AT 02:30 PM & 09:00 PM</div>
 </div>
 
-<div class="social-grid">
-    <a href="https://discord.gg/fUKA2MpFmn" class="social-btn btn-discord" target="_blank"><i class="fab fa-discord"></i> Discord</a>
-    <a href="https://www.facebook.com/groups/4203315063290851/" class="social-btn btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Group</a>
-    <a href="https://chat.whatsapp.com/KimQEIVWEYNI7AEiqMT4hs" class="social-btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="https://t.me/khucra" class="social-btn btn-telegram" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+<div class="event-card">
+    <div class="event-title"><i class="fas fa-gift"></i> NEW OBB RELEASE EVENT</div>
+    <p style="color: #ccc; font-size: 1rem;">আমাদের ফেসবুক পেজে <strong style="color:var(--bmg-blue);">২৫,০০০ ফলোয়ার</strong> পূর্ণ হলেই নতুন প্রিমিয়াম ওবিবি (OBB) রিলিজ করা হবে!</p>
+    
+    <div class="progress-box">
+        <div class="progress-fill"></div> 
+        <div class="progress-label">Goal: 25,000 Followers</div>
+    </div>
+    
+    <div style="color: var(--bmg-blue); font-weight: bold; margin-bottom: 15px; font-size: 1.1rem;">
+        আমরা লক্ষ্যের খুব কাছে! দ্রুত জয়েন করুন।
+    </div>
+
+    <a href="https://www.facebook.com/Ffgaminghasan" class="follow-now-btn" target="_blank">
+        <i class="fab fa-facebook"></i> FOLLOW PEGE NOW
+    </a>
 </div>
 
 <div class="container">
     <div class="card">
         <span class="badge badge-new">NEW</span>
-        <img src="https://i.postimg.cc/Gmm86SXX/Picsart-26-03-09-01-12-59-329.png" alt="BMG GROUP premium bus skin">
+        <img src="https://i.postimg.cc/Gmm86SXX/Picsart-26-03-09-01-12-59-329.png">
         <div class="card-content">
-            <h3>BMG GROUP PREMIUM BUS SKIN</h3>
+            <h3 style="font-family:'Orbitron'; font-size:0.9rem;">BMG GROUP PREMIUM BUS SKIN</h3>
             <a href="https://drive.google.com/drive/folders/1n2OgyOsA69VlcsNfRZU3mPccVdMxx4mU" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
@@ -118,7 +146,7 @@
         <span class="badge badge-hot">HOT</span>
         <img src="https://i.postimg.cc/SNC5FXKN/20260228-020918.jpg">
         <div class="card-content">
-            <h3>SAUDIA SPECIAL</h3>
+            <h3 style="font-family:'Orbitron'; font-size:0.9rem;">SAUDIA SPECIAL</h3>
             <a href="https://drive.google.com/file/d/1TckotrGd1sy2boe1FVwqsiSRpR89iHgv/view?usp=drivesdk" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
@@ -126,7 +154,7 @@
     <div class="card">
         <img src="https://i.postimg.cc/MKmgh2vr/Photo-260226103343.jpg">
         <div class="card-content">
-            <h3>HANIF PREMIUM V2</h3>
+            <h3 style="font-family:'Orbitron'; font-size:0.9rem;">HANIF PREMIUM V2</h3>
             <a href="https://drive.google.com/drive/folders/18x2iVMy3aiwLzrV_pQsQP8GHnCCMETx3" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
@@ -134,7 +162,7 @@
     <div class="card">
         <img src="https://i.postimg.cc/xd3DJxrn/1772251242011.png">
         <div class="card-content">
-            <h3>BANGLADESHI OBB</h3>
+            <h3 style="font-family:'Orbitron'; font-size:0.9rem;">BANGLADESHI OBB</h3>
             <a href="https://drive.google.com/drive/folders/1eL3o9p77wz8b_dTCBSBGOGc-rNYkPuOQ" class="download-btn" target="_blank">DOWNLOAD</a>
         </div>
     </div>
@@ -157,7 +185,7 @@
 
 <a href="https://m.me/61583460129028" target="_blank" class="messenger-float"><i class="fab fa-facebook-messenger"></i></a>
 
-<footer>&copy; 2026 BMG-BUSSID HUB | OFFICIAL</footer>
+<footer style="padding: 40px; color: #444; font-size: 0.8rem; font-family: 'Orbitron';">&copy; 2026 BMG-BUSSID HUB | OFFICIAL</footer>
 
 <script>
     function updateTimer() {
